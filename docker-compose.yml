@@ -8,9 +8,9 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD : a1b2c34a5e
     networks:
-      - myNetwork
+    - myNetwork
     ports:
-      - 3306:3306
+    - 3306:3306
 
   application:
     build: .
@@ -22,6 +22,8 @@ services:
       DATABASE_NAME: todolist
     networks:
       - myNetwork
+    volumes:
+      - .:/app/to-do-list
     ports:
       - 3000:3000
 
