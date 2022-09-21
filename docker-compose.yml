@@ -1,0 +1,22 @@
+networks:
+  myNetwork:
+
+services:
+
+  databaseServer:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD : a1b2c34a5e,
+    networks:
+      - myNetwork
+
+  application:
+    build: .
+    environment:
+      DATABASE_HOST:
+      DATABASE_USER:
+      DATABASE_PASS: a1b2c3
+      DATABASE_NAME:
+    networks:
+      - myNetwork
+
