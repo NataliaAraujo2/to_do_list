@@ -34,7 +34,7 @@ server.get("/tasks", function(req,res){
     then(function(data){
         res.json(data)
     }).
-    catch(function(erro){
+    catch(function(error){
         res.status(500)
         res.json(error)
     })
