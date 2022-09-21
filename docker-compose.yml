@@ -9,14 +9,19 @@ services:
       MYSQL_ROOT_PASSWORD : a1b2c34a5e
     networks:
       - myNetwork
+    ports:
+      - 3306:3306
 
   application:
     build: .
     environment:
+      AUTH_TOKEN: myAuthToken
       DATABASE_HOST: database
-      DATABASE_USER: natykay
+      DATABASE_USER: kay
       DATABASE_PASS: a1b2c3
-      DATABASE_NAME: ToDoList
+      DATABASE_NAME: todolist
     networks:
       - myNetwork
+    ports:
+      - 3000:3000
 
