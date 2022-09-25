@@ -6,24 +6,28 @@ services:
   databaseServer:
     image: mysql:latest
     environment:
-      MYSQL_ROOT_PASSWORD : a1b2c34a5e
+      MYSQL_DATABASE: todolist
+      MYSQL_ROOT_PASSWORD : a1b2c3
     networks:
     - myNetwork
     ports:
     - 3306:3306
+   
 
   application:
     build: .
     environment:
       AUTH_TOKEN: myAuthToken
       DATABASE_HOST: database
-      DATABASE_USER: kay
+      DATABASE_USER: root
       DATABASE_PASS: a1b2c3
       DATABASE_NAME: todolist
     networks:
-      - myNetwork
+    - myNetwork
     volumes:
-      - .:/app/to-do-list
+    - .:/app/to-do-list
     ports:
-      - 3000:3000
-
+    - 3000:3000
+    
+   
+   
