@@ -1,9 +1,0 @@
-CREATE TABLE tasks(
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    task VARCHAR(255) NOT NULL,
-    start_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    deadline DATETIME,
-    comment INT,
-    status VARCHAR(255)
-);
-
