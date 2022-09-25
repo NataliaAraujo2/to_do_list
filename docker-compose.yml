@@ -1,18 +1,20 @@
 networks:
-  myNetwork:
+  app_network:
+
 
 services:
 
-  databaseServer:
+  database:
     image: mysql:latest
     environment:
-      MYSQL_DATABASE: todolist
-      MYSQL_ROOT_PASSWORD : a1b2c3
+      MYSQL_DATABASE: todo
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_ROOT_USER: appuser
+      MYSQL_PASSWORD: abc123
     networks:
-    - myNetwork
+      - app_network
     ports:
-    - 3306:3306
-   
+      - 3306:3306
 
   application:
     build: .
@@ -20,14 +22,12 @@ services:
       AUTH_TOKEN: myAuthToken
       DATABASE_HOST: database
       DATABASE_USER: root
-      DATABASE_PASS: a1b2c3
-      DATABASE_NAME: todolist
+      DATABASE_PASS: 123456
+      DATABASE_NAME: todo
     networks:
-    - myNetwork
+      - app_network
     volumes:
-    - .:/app/to-do-list
+      - .:/srv/app
     ports:
-    - 3000:3000
-    
-   
-   
+      - 3000:3000
+  
