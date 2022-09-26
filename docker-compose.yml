@@ -27,7 +27,7 @@ services:
     networks:
       - app_network
     volumes:
-      - .:/srv/app
+      - .:/app/to-do-list
     ports:
       - 3000:3000
   
