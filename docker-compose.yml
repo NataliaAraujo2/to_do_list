@@ -15,7 +15,7 @@ services:
       - app_network
     ports:
       - 3306:3306
-
+    
   application:
     build: .
     environment:
@@ -30,4 +30,9 @@ services:
       - .:/app/to-do-list
     ports:
       - 3000:3000
+    depends_on:
+      - database
+    restart: on-failure
+    command: sh -c "knex migrate:up && node index.js"
+
   
