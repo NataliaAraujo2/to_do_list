@@ -2,7 +2,7 @@ FROM ubuntu:jammy
 
 WORKDIR /app/to-do-list
 
-ADD start.h /start.sh
+ADD start.sh /start.sh
 COPY .  .
 
 RUN apt-get update
