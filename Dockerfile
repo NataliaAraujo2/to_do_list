@@ -13,6 +13,6 @@ RUN npm install -y express
 RUN npm install -g knex
 
 
-CMD ["/start.sh" "node","index.js"]
+CMD ["/start.sh", "node","index.js"]
 
 
