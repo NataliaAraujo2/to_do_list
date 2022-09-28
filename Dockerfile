@@ -2,7 +2,7 @@ FROM ubuntu:jammy
 
 WORKDIR /app/to-do-list
 
-ADD start.sh /start.sh
+
 COPY .  .
 
 RUN apt-get update
@@ -13,6 +13,6 @@ RUN npm install -y express
 RUN npm install -g knex
 
 
-CMD ["/start.sh", "node","index.js"]
+CMD ["node","index.js"]
 
 
