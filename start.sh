@@ -1,4 +1,4 @@
 sleep 30
 
-cd /srv/app
+cd /app/to-do-list
 npm install knex -g
